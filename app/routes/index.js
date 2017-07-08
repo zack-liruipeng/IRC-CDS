@@ -16,6 +16,14 @@ module.exports = () => {
             },
             '/chat': (req, res, next) => {
                 res.render('chatroom');
+            },
+            //demo for the session
+            '/getsession': (req, res, next) => {
+                res.send('My favorite color: ' + req.session.favColor);
+            },
+            '/setsession': (req, res, next) => {
+                req.session.favColor = 'red';
+                res.send('color set');
             }
         },
         'post': {

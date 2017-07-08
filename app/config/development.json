@@ -1,0 +1,5 @@
+{
+    "host": "http://localhost:3000",
+    "dbURI": "mongodb://admin:123456@ds151232.mlab.com:51232/ircserver",
+    "sessionSecret":"catscanfly"
+}
