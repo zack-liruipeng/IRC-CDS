@@ -1,5 +1,11 @@
 {
     "host": "http://localhost:3000",
     "dbURI": "mongodb://admin:123456@ds151232.mlab.com:51232/ircserver",
-    "sessionSecret":"catscanfly"
+    "sessionSecret":"catscanfly",
+    "fb":{
+        "clientID":"487302828280617",
+        "clientSecret": "06aed4c092646fd1b40edfc61b23aebb",
+        "callbackURL": "//localhost:3000/auth/facebook/callback",
+        "profileFields":["id", "displayName", "photos"]
+    }
 }
