@@ -229,7 +229,7 @@ input[name='userInput'] {
 
 .fileUploadBtn {
     position: absolute;
-    right: 14px;
+    right: 100px;
     width: 43px;
     overflow: hidden;
     top: 22px;
@@ -237,6 +237,21 @@ input[name='userInput'] {
     outline: none;
     color: #FFF;
     background: rgb(67, 202, 147);
+    padding: 10px;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+
+.locationBtn {
+    position: absolute;
+    right: 8px;
+    width: 68px;
+    overflow: hidden;
+    top: 22px;
+    height: 21px;
+    outline: none;
+    color: #FFF;
+    background-color: skyblue;
     padding: 10px;
     font-family: sans-serif;
     text-decoration: none;

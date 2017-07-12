@@ -156,6 +156,15 @@ let removeUserFromRoom = (allrooms, socket) => {
     }
 }
 
+let generateMessage = (from, text) => {
+  return {
+    from,
+    text,
+    createdAt: new Date().getTime()
+  };
+};
+
+
 module.exports = {
     route,
     findOne,
@@ -166,5 +175,6 @@ module.exports = {
     randomHex,
     findRoomById,
     addUserToRoom,
-    removeUserFromRoom
+    removeUserFromRoom,
+    generateMessage
 };

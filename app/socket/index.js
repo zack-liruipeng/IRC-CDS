@@ -62,10 +62,23 @@ module.exports = (io, app) => {
             socket.to(data.roomID).emit('inMessage', JSON.stringify(data));
         });
 
+        //
+        socket.on('newLocationMessage', data => {
+            var locationUrl = `https://www.google.com/maps?q=${data.latitude},${data.longitude}`
+            var locationMessage = `<a target="_blank" href="${locationUrl}">My current Location</a>` 
+            console.log(locationMessage);
+            socket.to(data.roomID).emit('inMessage', JSON.stringify({
+                userPic: data.userPic,
+                message: locationMessage
+            }));
+        });
+
         //user exits
         socket.on('disconnect', () => {
             let room = helper.removeUserFromRoom(allrooms, socket);
             socket.broadcast.to(room.roomID).emit('updateUsersList', JSON.stringify(room.users));
         });
+
+
     })
 };

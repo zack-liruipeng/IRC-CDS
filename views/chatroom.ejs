@@ -96,6 +96,31 @@
 				});
 			});
 
+			//send location
+			var locationButton = $('#sendLocation');
+
+			locationButton.on('click', function() {
+				if(!navigator.geolocation) {
+					return alert('Geolocation not supported on your brower');
+				}
+
+				navigator.geolocation.getCurrentPosition(function(position) {
+					var locationUrl = `https://www.google.com/maps?q=${position.coords.latitude},${position.coords.longitude}`
+					var locationMessage = `<a target="_blank" href="${locationUrl}">My current Location</a>` 
+					updateDialog(userPic, locationMessage);
+					// console.log(position);
+					socket.emit('newLocationMessage', {
+						roomID,
+						user,
+						userPic,
+						latitude: position.coords.latitude,
+						longitude: position.coords.longitude
+					}); 
+				}, function() {
+					alert('unable to fetch the location!')
+				});
+			});
+
 		});
 	</script>
 </head>
@@ -119,6 +144,7 @@
 				<div class="typePanel">
 					<input type="text" name="userInput" placeholder="Type here and press enter">
 					<a href="#" id="uploadFile" class="fileUploadBtn">Photo</a>
+					<a href="#" id="sendLocation" class="locationBtn">Location</a>
 				</div>
 			</div>
 			<div class="chatUsers">
