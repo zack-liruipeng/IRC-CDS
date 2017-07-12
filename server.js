@@ -19,6 +19,7 @@ app.use(passport.session());
 app.use('/', wetalk.router);
 
 //configure later for multi-server
-app.listen(app.get('port'), () => {
+//instance
+wetalk.ioServer(app).listen(app.get('port'), () => {
     console.log('Wetalk running on the port', app.get('port'));
 });

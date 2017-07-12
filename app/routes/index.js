@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 const helper = require('../helpers');
 const passport = require('passport');
+const config = require('../config');
 
 module.exports = () => {
     let routes = {
@@ -13,13 +14,17 @@ module.exports = () => {
             configure later for the mode, private chat
             */
             //secure the routes
-            '/rooms': [helper.isAuthenticated,  (req, res, next) => {
+            '/rooms': [helper.isAuthenticated, (req, res, next) => {
                 res.render('rooms', {
-                    user: req.user
+                    user: req.user,
+                    host: config.host
                 });
             }],
             '/chat': [helper.isAuthenticated, (req, res, next) => {
-                res.render('chatroom');
+                res.render('chatroom', {
+                    user: req.user,
+                    host: config.host
+                });
             }],
             //demo for the session
             '/getsession': (req, res, next) => {
