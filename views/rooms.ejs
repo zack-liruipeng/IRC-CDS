@@ -27,9 +27,19 @@
 			renderChatRooms(JSON.parse(chatrooms));
 		});
 
+
+		let newRoomInput = $("input[name='roomName']");
+
+		$('#createBtn').on('click', () => {
+			if(newRoomInput.val() !== '') {
+				socket.emit('createNewRoom', newRoomInput.val());
+				newRoomInput.val('');
+			}
+		});
 		// socket.on('connect', () => {
 		// 	console.log('connect to the server');
 		// });
+
 	});
 	</script>
 </head>
