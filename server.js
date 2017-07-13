@@ -29,14 +29,8 @@ app.use('/', wetalk.router);
 //configure later for multi-server
 //instance
 
-// wetalk.ioServer(app).listen(app.get('port'), () => {
-//     console.log('Wetalk running on the port', app.get('port'));
-// });
-
-http.listen(process.env.PORT || 3000, function(){
-  console.log('listening on', http.address().port);
+wetalk.ioServer(app).listen(app.get('port'), () => {
+    console.log('Wetalk running on the port', app.get('port'));
 });
-
-
 
 //reconf
