@@ -1,3 +1,5 @@
+'use strict';
+
 if (process.env.NODE_ENV === 'production') {
     //offer production stage environment variables
     //process.env.REDIS_URL :: 

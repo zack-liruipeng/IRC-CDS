@@ -1,3 +1,5 @@
+'use strict';
+
 const session = require('express-session');
 //connect mongo module, and connect by passing the express session
 const MongoStore = require('connect-mongo')(session);

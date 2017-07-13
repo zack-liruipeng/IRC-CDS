@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 //first instance
 const app = express();
