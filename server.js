@@ -31,3 +31,5 @@ app.use('/', wetalk.router);
 wetalk.ioServer(app).listen(app.get('port'), () => {
     console.log('Wetalk running on the port', app.get('port'));
 });
+
+//reconf
