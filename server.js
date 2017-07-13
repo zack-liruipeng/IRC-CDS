@@ -15,6 +15,14 @@ app.use(wetalk.session);
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(require('morgan')('combined', {
+    stream: {
+        write: message => {
+            //write to logs 
+            wetalk.logger.log('info', message);
+        }
+    }
+}));
 //router
 app.use('/', wetalk.router);
 
