@@ -1,23 +1,30 @@
 {
     "host": "http://localhost:3000",
     "dbURI": "mongodb://admin:123456@ds151232.mlab.com:51232/ircserver",
-    "sessionSecret":"catscanfly",
-    "fb":{
-        "clientID":"487302828280617",
+    "sessionSecret": "catscanfly",
+    "fb": {
+        "clientID": "487302828280617",
         "clientSecret": "06aed4c092646fd1b40edfc61b23aebb",
         "callbackURL": "//localhost:3000/auth/facebook/callback",
-        "profileFields":["id", "displayName", "photos"]
+        "profileFields": [
+            "id",
+            "displayName",
+            "photos"
+        ]
     },
     "twitter": {
         "consumerKey": "OFnt7yOXjlheU3HGqpgZNAq8i",
-        "consumerSecret":"UdasKJ0YMWhUr9E9gwl9Kg9bTJG0j5MZxi0ImPQVHWtPk0sokC",
-        "callbackURL":"//localhost:3000/auth/twitter/callback",
-        "profileFields":["id", "displayName", "photos"]
+        "consumerSecret": "UdasKJ0YMWhUr9E9gwl9Kg9bTJG0j5MZxi0ImPQVHWtPk0sokC",
+        "callbackURL": "//localhost:3000/auth/twitter/callback",
+        "profileFields": [
+            "id",
+            "displayName",
+            "photos"
+        ]
     },
     "redis": {
-        "host": "128.0.0.1",
-        "port":6379,
+        "host": "127.0.0.1",
+        "port": 6379,
         "password": ""
     }
-
 }

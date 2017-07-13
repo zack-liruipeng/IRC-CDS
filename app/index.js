@@ -10,18 +10,22 @@ require('./auth')();
 let ioServer = app => {
     //local
     app.locals.chatrooms = [];
-    //set up the server
     const server = require('http').Server(app);
     const io = require('socket.io')(server);
-    io.serveClient('transports', ['websocket']);
+
+    //redis
+    io.set('transports', ['websocket']);
 
     let pubClient = redis(config.redis.port, config.redis.host, {
         auth_pass: config.redis.password
     });
+
     let subClient = redis(config.redis.port, config.redis.host, {
         return_buffers: true,
         auth_pass: config.redis.password
     });
+
+
     io.adapter(adapter({
         pubClient,
         subClient
@@ -38,5 +42,6 @@ let ioServer = app => {
 module.exports = {
     router: require('./routes')(),
     session: require('./session'),
-    ioServer
+    ioServer,
+    logger: require('./logger')
 };
